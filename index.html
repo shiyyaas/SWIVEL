@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWIVEL — Passive Radio Radar & Detector</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+  <header>
+    <a href="#" class="wordmark">SWIVEL</a>
+    <div class="nav-links">
+      ABOUT<span>•</span>RADAR<span>•</span>ARCHIVE
+    </div>
+  </header>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-target="live">LIVE</button>
+    <button class="tab-btn" data-target="cameras">CAMERAS</button>
+    <button class="tab-btn" data-target="trackers">TRACKERS</button>
+    <button class="tab-btn" data-target="public-safety">PUBLIC SAFETY</button>
+    <button class="tab-btn" data-target="alerts">ALERTS</button>
+    <button class="tab-btn" data-target="more">MORE</button>
+  </nav>
+
+  <main>
+    <section id="live" class="pane active">
+      <div class="hairline-box">
+        <h2>LIVE RADAR SCOPE</h2>
+        <p>Scanning surrounding Wi-Fi and Bluetooth radios in real time. Evidence, not proof.</p>
+        <div id="radar-container" style="height: 300px; border: 1px solid var(--celluloid-cream); margin-top: 21px; display: flex; align-items: center; justify-content: center; position: relative;">
+          <!-- Radar simulation canvas or elements will go here -->
+          <span style="font-size: 42px;">RADAR ACTIVE — 14 BLIPS</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="cameras" class="pane">
+      <div class="hairline-box">
+        <h2>CAMERAS</h2>
+        <p>Devices matched against known camera manufacturer registries.</p>
+      </div>
+    </section>
+
+    <section id="trackers" class="pane">
+      <div class="hairline-box">
+        <h2>TRACKERS</h2>
+        <p>AirTags, Tiles, SmartTags, and following detectors.</p>
+      </div>
+    </section>
+
+    <section id="public-safety" class="pane">
+      <div class="hairline-box">
+        <h2>PUBLIC SAFETY</h2>
+        <p>Surveillance gear and law-enforcement vendor signatures.</p>
+      </div>
+    </section>
+
+    <section id="alerts" class="pane">
+      <div class="hairline-box">
+        <h2>ALERTS</h2>
+        <p>Running list of equipment triggering audible alerts.</p>
+      </div>
+    </section>
+
+    <section id="more" class="pane">
+      <div class="hairline-box">
+        <h2>MORE CONTROLS</h2>
+        <p>Capture toggles, export simulation, and duress wipe.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/navigation.js"></script>
+</body>
+</html>

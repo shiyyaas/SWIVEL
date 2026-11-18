@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 !important;
+}
+
+body {
+  background-color: var(--projection-black);
+  color: var(--celluloid-cream);
+  font-family: var(--font-family);
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 21px;
+  border-bottom: 1px solid var(--celluloid-cream);
+  background-color: var(--projection-black);
+}
+
+.wordmark {
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing);
+  color: var(--celluloid-cream);
+  text-decoration: none;
+}
+
+.nav-links {
+  font-size: 42px;
+  letter-spacing: var(--letter-spacing);
+  color: var(--celluloid-cream);
+}
+
+.nav-links span {
+  padding: 0 21px;
+}
+
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid var(--celluloid-cream);
+  background-color: var(--projection-black);
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: var(--celluloid-cream);
+  font-family: var(--font-family);
+  font-size: 42px;
+  padding: 12px 21px;
+  cursor: pointer;
+  border-right: 1px solid var(--celluloid-cream);
+  transition: opacity 0.2s;
+}
+
+.tab-btn:hover, .tab-btn.active {
+  background-color: var(--darkroom-shadow);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 42px;
+  background-color: var(--darkroom-shadow);
+}
+
+.pane {
+  display: none;
+  flex: 1;
+}
+
+.pane.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.hairline-box {
+  border: 1px solid var(--celluloid-cream);
+  padding: 21px;
+  margin-bottom: 21px;
+  background-color: var(--projection-black);
+}
