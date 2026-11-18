@@ -30,6 +30,16 @@ jobs:
             millie2/android/**/*.gradle*
             millie2/android/**/gradle-wrapper.properties
 
+      - name: Decode Keystore and Create keystore.properties
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > release-key.jks
+          cat << EOF > keystore.properties
+          storeFile=release-key.jks
+          storePassword=${{ secrets.KEYSTORE_PASSWORD }}
+          keyAlias=${{ secrets.KEY_ALIAS }}
+          keyPassword=${{ secrets.KEY_PASSWORD }}
+          EOF
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
@@ -47,5 +57,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: app/build/outputs/apk/release/*.apk
+          files: millie2/android/app/build/outputs/apk/release/*.apk
           fail_on_unmatched_files: true
