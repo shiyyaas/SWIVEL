@@ -3,7 +3,7 @@ name: Android Release Build
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
   workflow_dispatch:
 
 permissions:
@@ -23,9 +23,9 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'gradle'
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
           cache-dependency-path: |
             millie2/android/**/*.gradle*
             millie2/android/**/gradle-wrapper.properties
@@ -33,7 +33,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build APK (Release)
+      - name: Build APK
         run: ./gradlew assembleRelease
 
       - name: Upload APK Artifact
@@ -42,8 +42,10 @@ jobs:
           name: swivel-release-apk
           path: millie2/android/app/build/outputs/apk/release/*.apk
 
-      - name: Create GitHub Release & Upload Asset
-        if: startsWith(github.ref, 'refs/tags/v')
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: millie2/android/app/build/outputs/apk/release/*.apk
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: app/build/outputs/apk/release/*.apk
+          fail_on_unmatched_files: true
