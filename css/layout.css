@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400&display=swap');
 
+:root {
+  --projection-black: #000000;
+  --darkroom-shadow: #4f4d3c;
+  --celluloid-cream: #ece4b4;
+  --font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --letter-spacing: -0.04em;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,11 +27,12 @@ body {
   overflow-x: hidden;
 }
 
+/* Cinematic Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 21px;
+  padding: 24px 48px;
   border-bottom: 1px solid var(--celluloid-cream);
   background-color: var(--projection-black);
 }
@@ -34,6 +43,7 @@ header {
   letter-spacing: var(--letter-spacing);
   color: var(--celluloid-cream);
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-links {
@@ -43,9 +53,11 @@ header {
 }
 
 .nav-links span {
-  padding: 0 21px;
+  padding: 0 24px;
+  opacity: 0.5;
 }
 
+/* Editorial Tab Bar */
 .tab-bar {
   display: flex;
   border-bottom: 1px solid var(--celluloid-cream);
@@ -59,37 +71,108 @@ header {
   color: var(--celluloid-cream);
   font-family: var(--font-family);
   font-size: 42px;
-  padding: 12px 21px;
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing);
+  padding: 20px 40px;
   cursor: pointer;
   border-right: 1px solid var(--celluloid-cream);
-  transition: opacity 0.2s;
+  transition: background-color 0.2s;
+  text-transform: uppercase;
 }
 
 .tab-btn:hover, .tab-btn.active {
   background-color: var(--darkroom-shadow);
 }
 
+/* Main Content Full-Bleed Projection Room */
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 42px;
-  background-color: var(--darkroom-shadow);
+  background-color: var(--projection-black);
 }
 
 .pane {
   display: none;
   flex: 1;
+  flex-direction: column;
 }
 
 .pane.active {
   display: flex;
-  flex-direction: column;
 }
 
-.hairline-box {
-  border: 1px solid var(--celluloid-cream);
-  padding: 21px;
-  margin-bottom: 21px;
+/* Cinematic Editorial Grid / Panels */
+.editorial-screen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  border-bottom: 1px solid var(--celluloid-cream);
+}
+
+@media (max-width: 1024px) {
+  .editorial-screen {
+    grid-template-columns: 1fr;
+  }
+}
+
+.screen-half {
+  padding: 64px;
+  border-right: 1px solid var(--celluloid-cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--projection-black);
+}
+
+.screen-half:last-child {
+  border-right: none;
+  background-color: var(--darkroom-shadow);
+}
+
+/* Massive Editorial Numbers (230px / 280px scale) */
+.massive-number {
+  font-size: 230px;
+  line-height: 0.9;
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing);
+  color: var(--celluloid-cream);
+  margin: 20px 0;
+}
+
+.editorial-caption {
+  font-size: 42px;
+  line-height: 1.3;
+  letter-spacing: var(--letter-spacing);
+  color: var(--celluloid-cream);
+  margin-bottom: 24px;
+}
+
+.editorial-body {
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: var(--letter-spacing);
+  color: var(--celluloid-cream);
+  opacity: 0.85;
+}
+
+/* Full-bleed Hairline Containers */
+.hairline-box {
+  border-bottom: 1px solid var(--celluloid-cream);
+  padding: 48px;
+  background-color: var(--projection-black);
+}
+
+.list-item {
+  border: 1px solid var(--celluloid-cream);
+  padding: 24px;
+  margin-top: 24px;
+  background-color: var(--projection-black);
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.list-item:hover {
+  background-color: var(--darkroom-shadow);
 }

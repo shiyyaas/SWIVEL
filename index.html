@@ -25,62 +25,110 @@
   </nav>
 
   <main>
+    <!-- LIVE PANE -->
     <section id="live" class="pane active">
-      <div class="hairline-box">
-        <h2>LIVE RADAR SCOPE</h2>
-        <p>Scanning surrounding Wi-Fi and Bluetooth radios in real time. Evidence, not proof.</p>
-        <div id="radar-container" style="height: 350px; border: 1px solid var(--celluloid-cream); margin-top: 21px; display: flex; align-items: center; justify-content: center; position: relative; background-color: var(--projection-black); overflow: hidden;">
-          <!-- Canvas for radar rings and blips -->
-          <canvas id="radar-canvas" width="600" height="350" style="width: 100%; height: 100%; display: block;"></canvas>
+      <div class="editorial-screen">
+        <div class="screen-half">
+          <div>
+            <div class="editorial-caption">PASSIVE RADIO SPECTRUM</div>
+            <div class="massive-number" id="blip-count">14</div>
+            <div class="editorial-body">Active Wi-Fi and Bluetooth signatures detected in local radio horizon. Evidence, not proof.</div>
+          </div>
+          <div style="margin-top: 48px;">
+            <div class="editorial-body" style="font-size: 18px; opacity: 0.6;">SCREENING ROOM 601 • TOKYO</div>
+          </div>
+        </div>
+        <div class="screen-half">
+          <div class="editorial-caption">RADAR SCOPE</div>
+          <div id="radar-container" style="height: 350px; border: 1px solid var(--celluloid-cream); display: flex; align-items: center; justify-content: center; position: relative; background-color: var(--projection-black); overflow: hidden;">
+            <canvas id="radar-canvas" width="600" height="350" style="width: 100%; height: 100%; display: block;"></canvas>
+          </div>
         </div>
       </div>
       <div class="hairline-box">
-        <h2>LIVE SIGNAL FEED</h2>
+        <div class="editorial-caption">LIVE SIGNAL FEED</div>
         <div id="live-feed-list"></div>
       </div>
     </section>
 
+    <!-- CAMERAS PANE -->
     <section id="cameras" class="pane">
-      <div class="hairline-box">
-        <h2>CAMERAS</h2>
-        <p>Devices matched against known camera manufacturer registries (Ring, Wyze, Axis, Hikvision, etc.).</p>
-        <div id="cameras-list"></div>
-      </div>
-    </section>
-
-    <section id="trackers" class="pane">
-      <div class="hairline-box">
-        <h2>TRACKERS</h2>
-        <p>Apple Find My / AirTags, Tiles, Samsung SmartTags, and following detectors.</p>
-        <div id="trackers-list"></div>
-      </div>
-    </section>
-
-    <section id="public-safety" class="pane">
-      <div class="hairline-box">
-        <h2>PUBLIC SAFETY</h2>
-        <p>Surveillance gear and law-enforcement vendor signatures (Flock Safety, Axon, Motorola Solutions).</p>
-        <div id="public-safety-list"></div>
-      </div>
-    </section>
-
-    <section id="alerts" class="pane">
-      <div class="hairline-box">
-        <h2>ALERTS</h2>
-        <p>Running list of equipment triggering audible alerts (High / Medium confidence).</p>
-        <div id="alerts-list"></div>
-      </div>
-    </section>
-
-    <section id="more" class="pane">
-      <div class="hairline-box">
-        <h2>MORE CONTROLS</h2>
-        <p>Capture toggles, export simulation, and duress wipe.</p>
-        <div style="display: flex; gap: 21px; margin-top: 21px; flex-wrap: wrap;">
-          <button id="btn-export" class="tab-btn" style="border: 1px solid var(--celluloid-cream);">EXPORT (CSV • KML • JSON)</button>
-          <button id="btn-duress" class="tab-btn" style="border: 1px solid var(--celluloid-cream); color: #ff6b6b;">DURESS · CLEAR ALL</button>
+      <div class="editorial-screen">
+        <div class="screen-half">
+          <div>
+            <div class="editorial-caption">OPTICAL REGISTRY</div>
+            <div class="massive-number">04</div>
+            <div class="editorial-body">Camera hardware signatures matched against manufacturer OUI databases (Ring, Wyze, Hikvision, Axis).</div>
+          </div>
         </div>
-        <div id="export-status" style="margin-top: 21px; font-size: 14px; opacity: 0.8;"></div>
+        <div class="screen-half" style="overflow-y: auto;">
+          <div class="editorial-caption">DETECTED CAMERAS</div>
+          <div id="cameras-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACKERS PANE -->
+    <section id="trackers" class="pane">
+      <div class="editorial-screen">
+        <div class="screen-half">
+          <div>
+            <div class="editorial-caption">PROXIMITY TRACKERS</div>
+            <div class="massive-number">02</div>
+            <div class="editorial-body">Apple Find My / AirTags, Tiles, and Samsung SmartTags emitting positioning beacons nearby.</div>
+          </div>
+        </div>
+        <div class="screen-half" style="overflow-y: auto;">
+          <div class="editorial-caption">TRACKER LOG</div>
+          <div id="trackers-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLIC SAFETY PANE -->
+    <section id="public-safety" class="pane">
+      <div class="editorial-screen">
+        <div class="screen-half">
+          <div>
+            <div class="editorial-caption">SURVEILLANCE GEAR</div>
+            <div class="massive-number">03</div>
+            <div class="editorial-body">Law-enforcement and institutional monitoring signatures (Flock Safety, Axon, Motorola Solutions).</div>
+          </div>
+        </div>
+        <div class="screen-half" style="overflow-y: auto;">
+          <div class="editorial-caption">AGENCY SIGNATURES</div>
+          <div id="public-safety-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALERTS PANE -->
+    <section id="alerts" class="pane">
+      <div class="editorial-screen">
+        <div class="screen-half">
+          <div>
+            <div class="editorial-caption">AUDIBLE ALERTS</div>
+            <div class="massive-number">01</div>
+            <div class="editorial-body">High-confidence triggers activating acoustic warning sequences.</div>
+          </div>
+        </div>
+        <div class="screen-half" style="overflow-y: auto;">
+          <div class="editorial-caption">ALERT STREAM</div>
+          <div id="alerts-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MORE PANE -->
+    <section id="more" class="pane">
+      <div class="hairline-box" style="padding: 64px;">
+        <div class="editorial-caption">CONTROLS & EXPORT</div>
+        <div class="editorial-body" style="margin-bottom: 32px;">Manage telemetry data, export evidentiary logs, or execute emergency wipe.</div>
+        <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+          <button id="btn-export" class="tab-btn" style="border: 1px solid var(--celluloid-cream); padding: 24px 48px;">EXPORT (CSV • KML • JSON)</button>
+          <button id="btn-duress" class="tab-btn" style="border: 1px solid var(--celluloid-cream); color: var(--celluloid-cream); padding: 24px 48px;">DURESS · CLEAR ALL</button>
+        </div>
+        <div id="export-status" class="editorial-body" style="margin-top: 32px;"></div>
       </div>
     </section>
   </main>
