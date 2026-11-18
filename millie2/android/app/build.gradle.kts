@@ -18,8 +18,8 @@ android {
         testInstrumentationRunner = "com.millie.two.LinkAuditInstrumentation"
         minSdk = 26
         targetSdk = 35
-        versionCode = 20017
-        versionName = "2.0.17"
+        versionCode = 20018
+        versionName = "2.0.18"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
