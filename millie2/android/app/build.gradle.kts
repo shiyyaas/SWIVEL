@@ -12,12 +12,12 @@ val hasReleaseKey = keystoreProps.getProperty("storeFile") != null
 
 android {
     namespace = "com.millie.two"
-    compileSdk = 35
+    compileSdk = 34
     defaultConfig {
         applicationId = "com.millie.civops2"
         testInstrumentationRunner = "com.millie.two.LinkAuditInstrumentation"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 20018
         versionName = "2.0.18"
     }
